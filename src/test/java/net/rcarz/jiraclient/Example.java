@@ -11,16 +11,14 @@ import static org.junit.Assert.assertNotNull;
 public class Example {
 
 	@Test
-	public void testGetIssue() throws JiraException {
-		ICredentials cred = new BasicCredentials("tgaurav@guidewire.com", "Dublin11");
-		JiraClient jira = new JiraClient("https://jira.atlassian.com/", cred);
-		String id = "IPG-751";
-		Issue issue = jira.getIssue(id);
+	public void testGetIssue() throws JiraException {		
+		JiraClient jira = new JiraClient("https://guidewirejira.atlassian.net/", null);		
+		String key = "IPG-565";
+	    Issue issue = jira.getIssue(key);
+	    
+	    assertEquals("with key " + key, key, issue.getKey());
+	    System.out.println(issue.getDescription());
 
-		assertNotNull(issue);
-		assertEquals("with id " + id, id, issue.getId());
-		final String expectedStatus = "IN PROGRESS";
-		assertEquals("with status " + expectedStatus, expectedStatus, issue.getStatus());
 	}
 
 }

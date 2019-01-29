@@ -1226,6 +1226,7 @@ public class Issue extends Resource {
 
         try {
             URI uri = restclient.buildURI(getBaseUri() + "issue/" + key, queryParams);
+            System.out.println(uri);
             result = restclient.get(uri);
         } catch (Exception ex) {
             throw new JiraException("Failed to retrieve issue " + key, ex);
