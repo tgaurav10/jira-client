@@ -12,12 +12,12 @@ public class Example {
 
 	@Test
 	public void testGetIssue() throws JiraException {		
-		JiraClient jira = new JiraClient("https://guidewirejira.atlassian.net/", null);		
+		JiraClient jira = new JiraClient("https://guidewirejira.atlassian.net/", new BasicCredentials("tgaurav@guidewire.com", "N8nFcQqkIy7f11qK5Hd31DE5"));		
 		String key = "IPG-565";
 	    Issue issue = jira.getIssue(key);
 	    
 	    assertEquals("with key " + key, key, issue.getKey());
-	    System.out.println(issue.getDescription());
+	    System.out.println(issue.getStatus());
 
 	}
 
